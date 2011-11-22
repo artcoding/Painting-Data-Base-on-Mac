@@ -1,0 +1,259 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2C50AF1D147C5826003D7DC8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C50AF1C147C5826003D7DC8 /* CoreData.framework */; };
+		2C50AF1F147C5826003D7DC8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C50AF1E147C5826003D7DC8 /* Foundation.framework */; };
+		2C50AF22147C5826003D7DC8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C50AF21147C5826003D7DC8 /* main.m */; };
+		2C50AF27147C5826003D7DC8 /* PaintingDataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C50AF25147C5826003D7DC8 /* PaintingDataBase.xcdatamodeld */; };
+		2C50AF29147C5826003D7DC8 /* PaintingDataBase.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2C50AF28147C5826003D7DC8 /* PaintingDataBase.1 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2C50AF16147C5826003D7DC8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				2C50AF29147C5826003D7DC8 /* PaintingDataBase.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2C50AF18147C5826003D7DC8 /* PaintingDataBase */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PaintingDataBase; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C50AF1C147C5826003D7DC8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2C50AF1E147C5826003D7DC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2C50AF21147C5826003D7DC8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2C50AF24147C5826003D7DC8 /* PaintingDataBase-Prefix.pch */ = {isa = PBXFileReference; path = "PaintingDataBase-Prefix.pch"; sourceTree = "<group>"; };
+		2C50AF26147C5826003D7DC8 /* PaintingDataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PaintingDataBase.xcdatamodel; sourceTree = "<group>"; };
+		2C50AF28147C5826003D7DC8 /* PaintingDataBase.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = PaintingDataBase.1; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2C50AF15147C5826003D7DC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C50AF1D147C5826003D7DC8 /* CoreData.framework in Frameworks */,
+				2C50AF1F147C5826003D7DC8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2C50AF0D147C5825003D7DC8 = {
+			isa = PBXGroup;
+			children = (
+				2C50AF20147C5826003D7DC8 /* PaintingDataBase */,
+				2C50AF1B147C5826003D7DC8 /* Frameworks */,
+				2C50AF19147C5826003D7DC8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2C50AF19147C5826003D7DC8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2C50AF18147C5826003D7DC8 /* PaintingDataBase */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2C50AF1B147C5826003D7DC8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2C50AF1C147C5826003D7DC8 /* CoreData.framework */,
+				2C50AF1E147C5826003D7DC8 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2C50AF20147C5826003D7DC8 /* PaintingDataBase */ = {
+			isa = PBXGroup;
+			children = (
+				2C50AF21147C5826003D7DC8 /* main.m */,
+				2C50AF28147C5826003D7DC8 /* PaintingDataBase.1 */,
+				2C50AF25147C5826003D7DC8 /* PaintingDataBase.xcdatamodeld */,
+				2C50AF23147C5826003D7DC8 /* Supporting Files */,
+			);
+			path = PaintingDataBase;
+			sourceTree = "<group>";
+		};
+		2C50AF23147C5826003D7DC8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2C50AF24147C5826003D7DC8 /* PaintingDataBase-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2C50AF17147C5826003D7DC8 /* PaintingDataBase */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C50AF2C147C5826003D7DC8 /* Build configuration list for PBXNativeTarget "PaintingDataBase" */;
+			buildPhases = (
+				2C50AF14147C5826003D7DC8 /* Sources */,
+				2C50AF15147C5826003D7DC8 /* Frameworks */,
+				2C50AF16147C5826003D7DC8 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PaintingDataBase;
+			productName = PaintingDataBase;
+			productReference = 2C50AF18147C5826003D7DC8 /* PaintingDataBase */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2C50AF0F147C5825003D7DC8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 2C50AF12147C5825003D7DC8 /* Build configuration list for PBXProject "PaintingDataBase" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2C50AF0D147C5825003D7DC8;
+			productRefGroup = 2C50AF19147C5826003D7DC8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2C50AF17147C5826003D7DC8 /* PaintingDataBase */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2C50AF14147C5826003D7DC8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C50AF22147C5826003D7DC8 /* main.m in Sources */,
+				2C50AF27147C5826003D7DC8 /* PaintingDataBase.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2C50AF2A147C5826003D7DC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		2C50AF2B147C5826003D7DC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2C50AF2D147C5826003D7DC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PaintingDataBase/PaintingDataBase-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2C50AF2E147C5826003D7DC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PaintingDataBase/PaintingDataBase-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2C50AF12147C5825003D7DC8 /* Build configuration list for PBXProject "PaintingDataBase" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C50AF2A147C5826003D7DC8 /* Debug */,
+				2C50AF2B147C5826003D7DC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C50AF2C147C5826003D7DC8 /* Build configuration list for PBXNativeTarget "PaintingDataBase" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C50AF2D147C5826003D7DC8 /* Debug */,
+				2C50AF2E147C5826003D7DC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2C50AF25147C5826003D7DC8 /* PaintingDataBase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2C50AF26147C5826003D7DC8 /* PaintingDataBase.xcdatamodel */,
+			);
+			currentVersion = 2C50AF26147C5826003D7DC8 /* PaintingDataBase.xcdatamodel */;
+			path = PaintingDataBase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2C50AF0F147C5825003D7DC8 /* Project object */;
+}
