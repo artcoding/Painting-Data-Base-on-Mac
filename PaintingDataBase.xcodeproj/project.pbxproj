@@ -12,6 +12,7 @@
 		2C50AF22147C5826003D7DC8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C50AF21147C5826003D7DC8 /* main.m */; };
 		2C50AF27147C5826003D7DC8 /* PaintingDataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C50AF25147C5826003D7DC8 /* PaintingDataBase.xcdatamodeld */; };
 		2C50AF29147C5826003D7DC8 /* PaintingDataBase.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2C50AF28147C5826003D7DC8 /* PaintingDataBase.1 */; };
+		2C9B88BA147CBE8F00F999C0 /* CommandProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B88B9147CBE8F00F999C0 /* CommandProcessor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,9 +33,11 @@
 		2C50AF1C147C5826003D7DC8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2C50AF1E147C5826003D7DC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2C50AF21147C5826003D7DC8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2C50AF24147C5826003D7DC8 /* PaintingDataBase-Prefix.pch */ = {isa = PBXFileReference; path = "PaintingDataBase-Prefix.pch"; sourceTree = "<group>"; };
+		2C50AF24147C5826003D7DC8 /* PaintingDataBase-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PaintingDataBase-Prefix.pch"; sourceTree = "<group>"; };
 		2C50AF26147C5826003D7DC8 /* PaintingDataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PaintingDataBase.xcdatamodel; sourceTree = "<group>"; };
 		2C50AF28147C5826003D7DC8 /* PaintingDataBase.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = PaintingDataBase.1; sourceTree = "<group>"; };
+		2C9B88B8147CBE8F00F999C0 /* CommandProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandProcessor.h; sourceTree = "<group>"; };
+		2C9B88B9147CBE8F00F999C0 /* CommandProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandProcessor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +82,8 @@
 		2C50AF20147C5826003D7DC8 /* PaintingDataBase */ = {
 			isa = PBXGroup;
 			children = (
+				2C9B88B8147CBE8F00F999C0 /* CommandProcessor.h */,
+				2C9B88B9147CBE8F00F999C0 /* CommandProcessor.m */,
 				2C50AF21147C5826003D7DC8 /* main.m */,
 				2C50AF28147C5826003D7DC8 /* PaintingDataBase.1 */,
 				2C50AF25147C5826003D7DC8 /* PaintingDataBase.xcdatamodeld */,
@@ -147,6 +152,7 @@
 			files = (
 				2C50AF22147C5826003D7DC8 /* main.m in Sources */,
 				2C50AF27147C5826003D7DC8 /* PaintingDataBase.xcdatamodeld in Sources */,
+				2C9B88BA147CBE8F00F999C0 /* CommandProcessor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +245,7 @@
 				2C50AF2E147C5826003D7DC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
