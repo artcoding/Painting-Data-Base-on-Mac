@@ -21,8 +21,6 @@
 NSManagedObjectModel *managedObjectModel(void);
 NSManagedObjectContext *managedObjectContext(void);
 
- 
-
 int main (int argc, const char * argv[])
 {
 
@@ -38,12 +36,13 @@ int main (int argc, const char * argv[])
         NSString *command = [args objectAtIndex:1];    // this may throw
         NSLog(@"Command is \"%@\"!\n", command);
         
-        NSMutableDictionary* parameters;
+        NSMutableDictionary* parameters = [[NSMutableDictionary alloc] init]; // <- this is nil?
         NSLog(@"Parameters:\n");
         for (size_t index = 2; index < argc; index++) {
             NSString* keyValue = [args objectAtIndex:index];
             NSLog(@"%@\n", keyValue );
             NSArray *split = [keyValue componentsSeparatedByString:@"="];
+            NSLog(@"%@\n",[split objectAtIndex:1]);
             [parameters setValue:[split objectAtIndex:1]          // this may throw
                           forKey:[split objectAtIndex:0]];
         }
@@ -54,19 +53,20 @@ int main (int argc, const char * argv[])
         
         // go build this class
         CommandProcessor* commandProcessor = [[CommandProcessor alloc] initWithCommand:command 
-                                                                         AndParameters:parameters];
-        commandProcessor.managedProjectContext = context;
+                                                                            parameters:parameters
+                                                                  managedObjectContext:context];
+        //commandProcessor.managedObjectContext = context;
         [commandProcessor execute];
         
         
                    
         // Custom code here...
         // Save the managed object context
-        NSError *error = nil;    
-        if (![context save:&error]) {
-            NSLog(@"Error while saving %@", ([error localizedDescription] != nil) ? [error localizedDescription] : @"Unknown Error");
-            exit(1);
-        }
+//        NSError *error = nil;    
+//        if (![context save:&error]) {
+//            NSLog(@"Error while saving %@", ([error localizedDescription] != nil) ? [error localizedDescription] : @"Unknown Error");
+//            exit(1);
+//        }
     }
     return 0;
 }
@@ -99,6 +99,7 @@ NSManagedObjectContext *managedObjectContext() {
         
         NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel()];
         [context setPersistentStoreCoordinator:coordinator];
+        //[context setUndoManager:nil];  // <-- Good technique to improve performance if Undo functionality not needed. I may want Undo here!
         
         NSString *STORE_TYPE = NSSQLiteStoreType;
         

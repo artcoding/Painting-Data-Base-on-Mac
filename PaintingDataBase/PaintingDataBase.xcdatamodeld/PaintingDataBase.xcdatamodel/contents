@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Genre" syncable="YES">
-        <attribute name="name" attributeType="String" minValueString="3" indexed="YES" syncable="YES"/>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="878" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Genre" representedClassName="Genre" syncable="YES">
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="paintings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Painting" inverseName="genre" inverseEntity="Painting" syncable="YES"/>
     </entity>
-    <entity name="ImageName" syncable="YES">
+    <entity name="ImageName" representedClassName="ImageName" syncable="YES">
         <attribute name="iPadFull" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="iPadThumbnail" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="webImage" attributeType="String" minValueString="5" syncable="YES"/>
+        <attribute name="webImage" attributeType="String" syncable="YES"/>
         <relationship name="painting" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Painting" inverseName="imageName" inverseEntity="Painting" syncable="YES"/>
     </entity>
-    <entity name="Painting" syncable="YES">
-        <attribute name="dateAdded" attributeType="Date" minDateTimeInterval="315594000" minValueString="2011/01/01" syncable="YES"/>
+    <entity name="Painting" representedClassName="Painting" syncable="YES">
+        <attribute name="dateAdded" attributeType="Date" minDateTimeInterval="315594000" minValueString="2011-01-01 17:00:00 +0000" syncable="YES"/>
         <attribute name="dateSold" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="height" attributeType="Integer 16" minValueString="1" syncable="YES"/>
+        <attribute name="doNotShow" attributeType="Boolean" defaultValueString="NO" indexed="YES" storedInTruthFile="YES" syncable="YES"/>
+        <attribute name="height" attributeType="Integer 16" syncable="YES"/>
         <attribute name="isMyFavourite" attributeType="Boolean" defaultValueString="NO" indexed="YES" syncable="YES"/>
         <attribute name="isNew" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
         <attribute name="isSold" attributeType="Boolean" defaultValueString="NO" indexed="YES" syncable="YES"/>
-        <attribute name="normalizedID" attributeType="String" minValueString="1" regularExpressionString="^[a-z]+$" indexed="YES" syncable="YES"/>
-        <attribute name="title" attributeType="String" minValueString="1" syncable="YES"/>
-        <attribute name="width" attributeType="Integer 16" minValueString="1" syncable="YES"/>
+        <attribute name="normalizedID" attributeType="String" regularExpressionString="^[a-z]+$" indexed="YES" syncable="YES"/>
+        <attribute name="title" attributeType="String" syncable="YES"/>
+        <attribute name="width" attributeType="Integer 16" syncable="YES"/>
         <relationship name="genre" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Genre" inverseName="paintings" inverseEntity="Genre" syncable="YES"/>
         <relationship name="imageName" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ImageName" inverseName="painting" inverseEntity="ImageName" syncable="YES"/>
     </entity>
+    <fetchRequest name="FetchPaintingByID" entity="Painting" predicateString="normalizedID == &quot;$NORMALIZED_ID&quot;"/>
     <elements>
-        <element name="Painting" positionX="-927" positionY="-171" width="128" height="210"/>
         <element name="Genre" positionX="-1145" positionY="-144" width="128" height="75"/>
         <element name="ImageName" positionX="-713" positionY="-153" width="128" height="105"/>
+        <element name="Painting" positionX="-927" positionY="-171" width="128" height="225"/>
     </elements>
 </model>

@@ -13,6 +13,9 @@
 		2C50AF27147C5826003D7DC8 /* PaintingDataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C50AF25147C5826003D7DC8 /* PaintingDataBase.xcdatamodeld */; };
 		2C50AF29147C5826003D7DC8 /* PaintingDataBase.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2C50AF28147C5826003D7DC8 /* PaintingDataBase.1 */; };
 		2C9B88BA147CBE8F00F999C0 /* CommandProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B88B9147CBE8F00F999C0 /* CommandProcessor.m */; };
+		2CB43208147EA64700D68E6A /* Painting.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB43207147EA64700D68E6A /* Painting.m */; };
+		2CB4320C147EA64800D68E6A /* ImageName.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4320B147EA64800D68E6A /* ImageName.m */; };
+		2CB4320F147EA64800D68E6A /* Genre.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4320E147EA64800D68E6A /* Genre.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +41,12 @@
 		2C50AF28147C5826003D7DC8 /* PaintingDataBase.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = PaintingDataBase.1; sourceTree = "<group>"; };
 		2C9B88B8147CBE8F00F999C0 /* CommandProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandProcessor.h; sourceTree = "<group>"; };
 		2C9B88B9147CBE8F00F999C0 /* CommandProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandProcessor.m; sourceTree = "<group>"; };
+		2CB43206147EA64700D68E6A /* Painting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Painting.h; sourceTree = "<group>"; };
+		2CB43207147EA64700D68E6A /* Painting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Painting.m; sourceTree = "<group>"; };
+		2CB4320A147EA64800D68E6A /* ImageName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageName.h; sourceTree = "<group>"; };
+		2CB4320B147EA64800D68E6A /* ImageName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageName.m; sourceTree = "<group>"; };
+		2CB4320D147EA64800D68E6A /* Genre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Genre.h; sourceTree = "<group>"; };
+		2CB4320E147EA64800D68E6A /* Genre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Genre.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +94,8 @@
 				2C9B88B8147CBE8F00F999C0 /* CommandProcessor.h */,
 				2C9B88B9147CBE8F00F999C0 /* CommandProcessor.m */,
 				2C50AF21147C5826003D7DC8 /* main.m */,
+				2CB43210147EA65F00D68E6A /* DataModel */,
 				2C50AF28147C5826003D7DC8 /* PaintingDataBase.1 */,
-				2C50AF25147C5826003D7DC8 /* PaintingDataBase.xcdatamodeld */,
 				2C50AF23147C5826003D7DC8 /* Supporting Files */,
 			);
 			path = PaintingDataBase;
@@ -98,6 +107,20 @@
 				2C50AF24147C5826003D7DC8 /* PaintingDataBase-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2CB43210147EA65F00D68E6A /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				2C50AF25147C5826003D7DC8 /* PaintingDataBase.xcdatamodeld */,
+				2CB4320A147EA64800D68E6A /* ImageName.h */,
+				2CB4320B147EA64800D68E6A /* ImageName.m */,
+				2CB43206147EA64700D68E6A /* Painting.h */,
+				2CB43207147EA64700D68E6A /* Painting.m */,
+				2CB4320D147EA64800D68E6A /* Genre.h */,
+				2CB4320E147EA64800D68E6A /* Genre.m */,
+			);
+			name = DataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +176,9 @@
 				2C50AF22147C5826003D7DC8 /* main.m in Sources */,
 				2C50AF27147C5826003D7DC8 /* PaintingDataBase.xcdatamodeld in Sources */,
 				2C9B88BA147CBE8F00F999C0 /* CommandProcessor.m in Sources */,
+				2CB43208147EA64700D68E6A /* Painting.m in Sources */,
+				2CB4320C147EA64800D68E6A /* ImageName.m in Sources */,
+				2CB4320F147EA64800D68E6A /* Genre.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

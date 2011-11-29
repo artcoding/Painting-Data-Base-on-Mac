@@ -10,14 +10,23 @@
 
 @interface CommandProcessor : NSObject
 
++(NSString*) normalizedString:(NSString*) aString;
+
 +(void) help: (NSString*) command;
 
 -(id) initWithCommand:(NSString*) command
-        AndParameters:(NSDictionary*) parameters;
+           parameters:(NSDictionary*) parameters
+ managedObjectContext:(NSManagedObjectContext* ) context;
 
 -(void) execute;
 
-@property (weak,nonatomic) NSManagedObjectContext* managedProjectContext;
+@property (weak,nonatomic) NSManagedObjectContext* managedObjectContext;
 
+/**
+ * Return normalized version of painting title. No white spaces and first letter of every word capitalized.
+ * "title" field in
+ * \todo Should throw an exception if 
+ */
+@property (strong,nonatomic,readonly) NSString* normalizedIDInRequest;
 
 @end
