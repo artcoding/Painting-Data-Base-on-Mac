@@ -7,19 +7,16 @@
 //
 
 #import "CommandProcessor.h"
-#import "Painting.h"
+//#import "Painting.h"
 #import "Genre.h"
 #import "ImageName.h"
 
 @interface CommandProcessor()  // "private" properties
-@property (strong, nonatomic) NSString*     _command;
-@property (strong, nonatomic) NSDictionary* _parameters;
 
-/** Fetches painting from store for various reasons: 
- *  to just check if it is already there, or change/report something
+/** 
+ \return an instance of NSDateFormatter initialized for date format "YYYY/MM/DD"
  */
--(Painting *) fetchPaintingByTitle; //:(NSString*) normalizedID;
-//-(NSArray *) fetchPainting;
++(NSDateFormatter*) dateFormatter;
 
 /**
  Returns NSArray* of NSNumbers representing hegiht and width of painitng.
@@ -35,9 +32,9 @@
 
 /**
  Executes new command - add new painting to Data Base
- Return true on success or false if fails
+ Return YES on success or NO if fails
  */ 
--(BOOL) executeNew;
+-(BOOL) executeAddWithNewSetTo: (BOOL)new;
 
 -(BOOL) executeAddGenre;
 
@@ -48,34 +45,59 @@
 @synthesize managedObjectContext;
 @synthesize _command, _parameters;
 
++(NSDateFormatter*) dateFormatter {
+    static NSDateFormatter* formatter;
+    if (!formatter) {
+        //formatter = [[NSDateFormatter alloc] initWithDateFormat:@"yyyy'/'MM'/'dd" allowNaturalLanguage:NO];
+        formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy'/'MM'/'dd"];
+    }
+    return formatter;
+
+}
+
++(NSDate*) dateFromString:(NSString*) dateString {
+    //NSDateFormatter* formatter = [[NSDateFormatter alloc] initWithDateFormat:@"yyyy'/'MM'/'dd" allowNaturalLanguage:NO];
+    return [[self.class dateFormatter] dateFromString:dateString];
+}
+
++(NSString*) stringFromDate:(NSDate*) date {
+   // NSDateFormatter* formatter = [[NSDateFormatter alloc] initWithDateFormat:@"yyyy'/'MM'/'dd" allowNaturalLanguage:NO];
+    return [[self.class dateFormatter] stringFromDate:date];
+}
+
+
 +(NSString*) normalizedString:(NSString*) aString {
     // 1. Convert to lower case
     NSString* lowercase = [aString lowercaseString];
-    // 2. Split on white spaces
-    NSArray* split = [lowercase componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
-    if ([split count] == 0){ // aString has no words
-        return nil;
-    }    
-    
-    // 3. Capitalize 1st letter in each word
+    // 2. Result string
     NSMutableString* joined = [[NSMutableString alloc] init];
-    NSString* word;
-    for ( word in split ) {
+    NSScanner* scanner = [NSScanner scannerWithString:lowercase];
+    while ( ![scanner isAtEnd] ) {
+        // Scan up to next alpha-numeric character
+        [scanner scanUpToCharactersFromSet:[NSCharacterSet alphanumericCharacterSet] intoString:nil];
+        // Scan word to next white space
+        NSString* word;
+        if ( ![scanner scanUpToCharactersFromSet:[NSCharacterSet whitespaceCharacterSet] intoString:&word]) {
+            break;
+        }
+        // Capitalize 1st letter of word
+        NSString* Word = [NSString stringWithFormat:@"%@%@",[[word substringToIndex:1] capitalizedString],[word substringFromIndex:1]];
+        [joined appendString:Word];
         
-        [joined setString:[NSString stringWithFormat:@"%@%@",[[word substringToIndex:1] capitalizedString],[word substringFromIndex:1]]];
     }
-    return (NSString*)joined;
+    
+    return [joined isEqualToString:@""] ? nil : (NSString*)joined;
 }
 
 -(NSString*) normalizedIDInRequest{
     
-    NSString* title = [self._parameters valueForKey:@"title"];
-    return [CommandProcessor normalizedString:title];
-    // throw if empty normalized
+    NSString* title = [self._parameters objectForKey:@"title"];
+    return [self.class normalizedString:title];
 }
 
-+(void) help: (NSString*) command{
++(void) help: (NSString*)command {
     NSDictionary *helpDictionary 
         = [NSDictionary dictionaryWithObjectsAndKeys:
            @"title=\"Pig in Flowers\" size=48x72 width=36\n\tCreates a new record with id=pig_in_flowers, date=today",  @"new", 
@@ -96,11 +118,10 @@
     if (command && ![command isEqualToString: @"help"]) {      // command provided - try finding its help
         NSString* log = [helpDictionary valueForKey:command];
         if (log) {      // valid command - output only its help and return get out
-            NSLog(@"Improper use of %@ command. Usage is:\n%@ %@ %@", command, name, command,  log);
+            NSLog(@"Usage of command %@ is:\n%@ %@ %@", command, name, command,  log);
             return;
         }
     }
-    // if command == nil or == "help" or unsupported - output general help
     
     NSMutableString* fullHelp = [NSMutableString stringWithString:@"\nUsage is:\n\n"];
     for (NSString* com in helpDictionary) {
@@ -109,12 +130,17 @@
     NSLog (@"%@", fullHelp);
 }
 
+///< Designated initializer
+-(id) init {
+    self = [super init];
+    return self;
+}
+
 -(id) initWithCommand:(NSString*) command
            parameters:(NSDictionary*) parameters
  managedObjectContext:(NSManagedObjectContext* ) context {
 
-    //CommandProcessor* processor = nil;
-    self = [super init];    // Designated initializer inits super!
+    [self init];    // Designated initializer!
     if (!self) {
         return self;  // Using exceptions is not recommended! Let caller deal with nil
     }
@@ -126,12 +152,12 @@
     return self;
 }
 
--(void) execute {
+-(BOOL) execute {
     NSLog(@"Command is %@\n", self._command);
     if ([self._command isEqualToString:@"new"]) {
-        [self executeNew];
+        return [self executeAddWithNewSetTo:YES];
     } else if ([self._command isEqualToString:@"add"]) {
-        
+        return [self executeAddWithNewSetTo:NO];
     } else if ([self._command isEqualToString:@"delete"]) {
         
     } else if ([self._command isEqualToString:@"unsetnew"]) {
@@ -143,7 +169,7 @@
     } else if ([self._command isEqualToString:@"doNotShow"]) {
         
     } else if ([self._command isEqualToString:@"addGenre"]) {
-        [self executeAddGenre];
+        return [self executeAddGenre];
     } else if ([self._command isEqualToString:@"deleteGenre"]) {
         
     } else if ([self._command isEqualToString:@"fetch"]) {
@@ -151,27 +177,35 @@
     } else { // this case would also include "help" command
         [CommandProcessor help:self._command];
     }
+    return YES;
 }
 
-#pragma mark - Command-specific private methods
+#pragma mark - Command-specific methods
 
 /**
  * Should rethrow if [self normalizedIDInRequest] fails.
  */
 -(Painting *) fetchPaintingByTitle {
+    NSString* normalizedID = self.normalizedIDInRequest;
+    if (!normalizedID) {
+        NSLog (@"Must provide valid title");
+        return nil;
+    }
+    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Painting"
                                               inManagedObjectContext:self.managedObjectContext];
+    NSAssert(entity, @"Illegal Entity requested in Model"); 
     [fetchRequest setEntity:entity];
-    
-    NSString* normalizedID = self.normalizedIDInRequest;
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"normalizedID LIKE %@", normalizedID];
+        
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"normalizedID = %@", normalizedID];
     [fetchRequest setPredicate:predicate];
     NSError *error = nil;
     NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     // executeFetchRequest returns nil iff there is a problem. If no problem but no object match request - returns empty array (not nil)! 
-    if (fetchedObjects == nil) {
-        // So this is a real problem - throw an exception here!
+    if (fetchedObjects == nil) {        
+        NSException* anException = [NSException exceptionWithName:@"ProblemWithDatabaseException" reason:@"EXCEPTION: Serious Problem With Database" userInfo:nil];
+        @throw anException;
         return nil;
     }
     return [fetchedObjects lastObject];
@@ -179,23 +213,25 @@
 
 -(NSArray*) paintingSize{
     NSString* sizeString = [self._parameters valueForKey:@"size"];
+
     NSArray* split = [sizeString componentsSeparatedByString:@"x"];
     if ( [split count] != 2 ){
-        // @throw SizeException
+        NSLog (@"ERROR: size must be of form 00x00\n");
+        return nil;
     }
     
-    //NSSize size;
     NSNumber* height = [ NSNumber numberWithInteger: [[split objectAtIndex:0] integerValue] ];
     NSNumber* width  = [ NSNumber numberWithInteger: [[split objectAtIndex:1] integerValue] ];
     NSArray*  size   = [ NSArray arrayWithObjects: height, width, nil ];
-    return [size autorelease];  // Should it be autoreleased?
+    return size;  // Should it be autoreleased?
     
 }
 
 -(Genre*) paintingGenre {
     NSString* genreName = [CommandProcessor normalizedString:[self._parameters valueForKey:@"genre"]];
     if (!genreName) {
-        // @throw;
+        NSLog (@"ERROR: valid genre must be provided\n");
+        return nil;
     }
     
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -205,55 +241,82 @@
 	
 	NSError *error = nil;
 	Genre* genre = [[self.managedObjectContext executeFetchRequest:request error:&error] lastObject];
-	//[request release];
     
-	if (!error && !genre) {
+	if (!genre) {
         // throw here. New genres must be added by "genre" command.
-
+        NSLog(@"Genre does not exist. Use addGenre command:\n%@", [error description]);
+        [self.class help:@"addGenre"];
+        return nil;
     }
 	
 	return genre;
 }
 
--(BOOL) executeNew {
-    Painting* existingPainting = [self fetchPaintingByTitle];
-    if (existingPainting) { // Painting already in data base
+-(BOOL) executeAddWithNewSetTo: (BOOL)new {
+    Painting* thePainting = [self fetchPaintingByTitle];
+    if (thePainting) { // Painting already in data base
         // Output error existingPainting data here and quit
-        return false;
+        return NO;
     }
     
-    Painting* newPainting = [NSEntityDescription insertNewObjectForEntityForName:@"Painting"
+    thePainting = [NSEntityDescription insertNewObjectForEntityForName:@"Painting"
                                                           inManagedObjectContext:self.managedObjectContext];
     
-    newPainting.title        = [self._parameters valueForKey:@"title"];
-    newPainting.normalizedID = self.normalizedIDInRequest;
-    newPainting.isNew        = [NSNumber numberWithBool:YES];
+    thePainting.title        = [self._parameters objectForKey:@"title"];
+    thePainting.normalizedID = self.normalizedIDInRequest;
+    if (!thePainting.normalizedID) {
+        NSLog(@"ERROR: Invalid title %@.", thePainting.title);
+        [self.class help:@"new"];
+        return NO;
+    }
     
-    newPainting.dateAdded = [NSDate date];  // today
+    thePainting.isNew     = [NSNumber numberWithBool:new];
+    
+    NSDate* date = [NSDate date]; // today's date
+    if (!new) { // if not new - check if date is given
+        NSString* dateInRequest = [self._parameters objectForKey:@"date"];
+        if (dateInRequest) // if date is provided in request - try to use it
+            date = [self.class dateFromString:dateInRequest];
+    }    
+    if (!date) {
+        NSLog(@"Problem setting date.\n");
+        [self.class help:@"add"];
+        return NO;
+    }
+    
+    thePainting.dateAdded = date;  // today
     
     NSArray* size = [self paintingSize];
-    newPainting.height = [size objectAtIndex:0];
-    newPainting.width  = [size objectAtIndex:1];
+    if (!size) {
+        [self.class help:@"new"];
+        return NO;
+    }
+    
+    thePainting.height = [size objectAtIndex:0];
+    thePainting.width  = [size objectAtIndex:1];
     
     BOOL isFavourite = [[self._parameters valueForKey:@"favourite"] isEqualToString:@"YES"];
-    newPainting.isMyFavourite = [NSNumber numberWithBool:isFavourite];
+    thePainting.isMyFavourite = [NSNumber numberWithBool:isFavourite];
 
-    newPainting.genre = [self paintingGenre];
+    thePainting.genre = [self paintingGenre];
+    if ( !thePainting.genre ) {
+        return NO;
+    }
     
-    ImageName* newImageName = [NSEntityDescription insertNewObjectForEntityForName:@"ImageName"
-                                                            inManagedObjectContext:self.managedObjectContext];
-    newImageName.iPadFull      = [NSString stringWithFormat: @"full_%@",  newPainting.normalizedID];
-    newImageName.iPadThumbnail = [NSString stringWithFormat: @"thumb_%@", newPainting.normalizedID];
-    newImageName.webImage      = newPainting.normalizedID;
-    newPainting.imageName = newImageName;
+    ImageName* theImageName    = [NSEntityDescription insertNewObjectForEntityForName:@"ImageName"
+                                                               inManagedObjectContext:self.managedObjectContext];
+    theImageName.iPadFull      = [NSString stringWithFormat: @"full_%@",  thePainting.normalizedID];
+    theImageName.iPadThumbnail = [NSString stringWithFormat: @"thumb_%@", thePainting.normalizedID];
+    theImageName.webImage      = thePainting.normalizedID;
+    thePainting.imageName      = theImageName;
 
     NSError *error = nil;
     if (![self.managedObjectContext save:&error]) {
-        // Something wrong with DB - throw
-        return false;
+        NSLog(@"new command failed:\n%@", [error description]);
+        return NO;
     }    
     
-    return true;
+    return YES;
     
 }
 
@@ -261,17 +324,17 @@
     NSString* genreName = [CommandProcessor normalizedString: [self._parameters valueForKey:@"name"] ];
     if (!genreName) {
         // @throw;
-        return false;
+        return NO;
     }
     
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	request.entity = [NSEntityDescription entityForName:@"Genre"
                                  inManagedObjectContext:self.managedObjectContext ];
-	request.predicate = [NSPredicate predicateWithFormat:@"name LIKE %@", genreName];
+	request.predicate = [NSPredicate predicateWithFormat:@"name = %@", genreName];
 	
 	NSError *error = nil;
     Genre* genre = [[self.managedObjectContext executeFetchRequest:request error:&error] lastObject];
-    NSAssert(error == nil, @"Error fetching genre request");
+    NSAssert(error == nil, @"Error fetching genre request.\n%@",[error description]);
     
 	if (genre) { 
         // genre already exists -> Output warning
@@ -283,11 +346,11 @@
         
         if (![self.managedObjectContext save:&error]) {
             // Something wrong with DB - throw
-            return false;
+            return NO;
         }
         NSLog(@"Successfully added genre %@ to the Data Base\n", genreName);
     }
-    return true;
+    return YES;
 }
 
 @end

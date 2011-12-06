@@ -55,18 +55,9 @@ int main (int argc, const char * argv[])
         CommandProcessor* commandProcessor = [[CommandProcessor alloc] initWithCommand:command 
                                                                             parameters:parameters
                                                                   managedObjectContext:context];
-        //commandProcessor.managedObjectContext = context;
+        // execute command
         [commandProcessor execute];
         
-        
-                   
-        // Custom code here...
-        // Save the managed object context
-//        NSError *error = nil;    
-//        if (![context save:&error]) {
-//            NSLog(@"Error while saving %@", ([error localizedDescription] != nil) ? [error localizedDescription] : @"Unknown Error");
-//            exit(1);
-//        }
     }
     return 0;
 }
@@ -95,6 +86,7 @@ NSManagedObjectContext *managedObjectContext() {
     }
 
     @autoreleasepool {
+        
         context = [[NSManagedObjectContext alloc] init];
         
         NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel()];

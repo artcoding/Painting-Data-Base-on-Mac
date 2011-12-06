@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C1CB1D9148550370034D155 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1CB1D8148550370034D155 /* SenTestingKit.framework */; };
+		2C1CB1DB148550370034D155 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1CB1DA148550370034D155 /* Cocoa.framework */; };
+		2C1CB1E5148550370034D155 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CB1E3148550370034D155 /* InfoPlist.strings */; };
+		2C1CB1E8148550370034D155 /* PaintingDataBaseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CB1E7148550370034D155 /* PaintingDataBaseTests.m */; };
+		2C1CB1EE1487AD070034D155 /* CommandProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B88B9147CBE8F00F999C0 /* CommandProcessor.m */; };
+		2C1CB1EF1487AD150034D155 /* ImageName.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4320B147EA64800D68E6A /* ImageName.m */; };
+		2C1CB1F01487AD150034D155 /* Painting.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB43207147EA64700D68E6A /* Painting.m */; };
+		2C1CB1F11487AD150034D155 /* Genre.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4320E147EA64800D68E6A /* Genre.m */; };
 		2C50AF1D147C5826003D7DC8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C50AF1C147C5826003D7DC8 /* CoreData.framework */; };
 		2C50AF1F147C5826003D7DC8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C50AF1E147C5826003D7DC8 /* Foundation.framework */; };
 		2C50AF22147C5826003D7DC8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C50AF21147C5826003D7DC8 /* main.m */; };
@@ -16,6 +24,9 @@
 		2CB43208147EA64700D68E6A /* Painting.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB43207147EA64700D68E6A /* Painting.m */; };
 		2CB4320C147EA64800D68E6A /* ImageName.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4320B147EA64800D68E6A /* ImageName.m */; };
 		2CB4320F147EA64800D68E6A /* Genre.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4320E147EA64800D68E6A /* Genre.m */; };
+		2CD8DA7D1487AE7F00A0DF3B /* PaintingDataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C50AF25147C5826003D7DC8 /* PaintingDataBase.xcdatamodeld */; };
+		2CD8DA7F1487AEA600A0DF3B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C50AF1E147C5826003D7DC8 /* Foundation.framework */; };
+		2CD8DA801487AEB200A0DF3B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C50AF1C147C5826003D7DC8 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +43,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2C1CB1D7148550370034D155 /* PaintingDataBaseTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaintingDataBaseTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C1CB1D8148550370034D155 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		2C1CB1DA148550370034D155 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		2C1CB1DD148550370034D155 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		2C1CB1DE148550370034D155 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2C1CB1DF148550370034D155 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2C1CB1E2148550370034D155 /* PaintingDataBaseTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PaintingDataBaseTests-Info.plist"; sourceTree = "<group>"; };
+		2C1CB1E4148550370034D155 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2C1CB1E6148550370034D155 /* PaintingDataBaseTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaintingDataBaseTests.h; sourceTree = "<group>"; };
+		2C1CB1E7148550370034D155 /* PaintingDataBaseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaintingDataBaseTests.m; sourceTree = "<group>"; };
+		2C1CB1E9148550380034D155 /* PaintingDataBaseTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PaintingDataBaseTests-Prefix.pch"; sourceTree = "<group>"; };
 		2C50AF18147C5826003D7DC8 /* PaintingDataBase */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PaintingDataBase; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C50AF1C147C5826003D7DC8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2C50AF1E147C5826003D7DC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -50,6 +72,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2C1CB1D3148550370034D155 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CD8DA801487AEB200A0DF3B /* CoreData.framework in Frameworks */,
+				2CD8DA7F1487AEA600A0DF3B /* Foundation.framework in Frameworks */,
+				2C1CB1D9148550370034D155 /* SenTestingKit.framework in Frameworks */,
+				2C1CB1DB148550370034D155 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2C50AF15147C5826003D7DC8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -62,10 +95,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C1CB1DC148550370034D155 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2C1CB1DD148550370034D155 /* AppKit.framework */,
+				2C1CB1DE148550370034D155 /* CoreData.framework */,
+				2C1CB1DF148550370034D155 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		2C1CB1E0148550370034D155 /* PaintingDataBaseTests */ = {
+			isa = PBXGroup;
+			children = (
+				2C1CB1E6148550370034D155 /* PaintingDataBaseTests.h */,
+				2C1CB1E7148550370034D155 /* PaintingDataBaseTests.m */,
+				2C1CB1E1148550370034D155 /* Supporting Files */,
+			);
+			path = PaintingDataBaseTests;
+			sourceTree = "<group>";
+		};
+		2C1CB1E1148550370034D155 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2C1CB1E2148550370034D155 /* PaintingDataBaseTests-Info.plist */,
+				2C1CB1E3148550370034D155 /* InfoPlist.strings */,
+				2C1CB1E9148550380034D155 /* PaintingDataBaseTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		2C50AF0D147C5825003D7DC8 = {
 			isa = PBXGroup;
 			children = (
 				2C50AF20147C5826003D7DC8 /* PaintingDataBase */,
+				2C1CB1E0148550370034D155 /* PaintingDataBaseTests */,
 				2C50AF1B147C5826003D7DC8 /* Frameworks */,
 				2C50AF19147C5826003D7DC8 /* Products */,
 			);
@@ -75,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				2C50AF18147C5826003D7DC8 /* PaintingDataBase */,
+				2C1CB1D7148550370034D155 /* PaintingDataBaseTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,6 +149,9 @@
 			children = (
 				2C50AF1C147C5826003D7DC8 /* CoreData.framework */,
 				2C50AF1E147C5826003D7DC8 /* Foundation.framework */,
+				2C1CB1D8148550370034D155 /* SenTestingKit.framework */,
+				2C1CB1DA148550370034D155 /* Cocoa.framework */,
+				2C1CB1DC148550370034D155 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -126,6 +194,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2C1CB1D6148550370034D155 /* PaintingDataBaseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C1CB1EC148550380034D155 /* Build configuration list for PBXNativeTarget "PaintingDataBaseTests" */;
+			buildPhases = (
+				2C1CB1D2148550370034D155 /* Sources */,
+				2C1CB1D3148550370034D155 /* Frameworks */,
+				2C1CB1D4148550370034D155 /* Resources */,
+				2C1CB1D5148550370034D155 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PaintingDataBaseTests;
+			productName = PaintingDataBaseTests;
+			productReference = 2C1CB1D7148550370034D155 /* PaintingDataBaseTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		2C50AF17147C5826003D7DC8 /* PaintingDataBase */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C50AF2C147C5826003D7DC8 /* Build configuration list for PBXNativeTarget "PaintingDataBase" */;
@@ -164,11 +250,52 @@
 			projectRoot = "";
 			targets = (
 				2C50AF17147C5826003D7DC8 /* PaintingDataBase */,
+				2C1CB1D6148550370034D155 /* PaintingDataBaseTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		2C1CB1D4148550370034D155 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C1CB1E5148550370034D155 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2C1CB1D5148550370034D155 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		2C1CB1D2148550370034D155 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CD8DA7D1487AE7F00A0DF3B /* PaintingDataBase.xcdatamodeld in Sources */,
+				2C1CB1EF1487AD150034D155 /* ImageName.m in Sources */,
+				2C1CB1F01487AD150034D155 /* Painting.m in Sources */,
+				2C1CB1F11487AD150034D155 /* Genre.m in Sources */,
+				2C1CB1EE1487AD070034D155 /* CommandProcessor.m in Sources */,
+				2C1CB1E8148550370034D155 /* PaintingDataBaseTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2C50AF14147C5826003D7DC8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -184,7 +311,42 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		2C1CB1E3148550370034D155 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C1CB1E4148550370034D155 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		2C1CB1EA148550380034D155 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PaintingDataBaseTests/PaintingDataBaseTests-Prefix.pch";
+				INFOPLIST_FILE = "PaintingDataBaseTests/PaintingDataBaseTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		2C1CB1EB148550380034D155 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PaintingDataBaseTests/PaintingDataBaseTests-Prefix.pch";
+				INFOPLIST_FILE = "PaintingDataBaseTests/PaintingDataBaseTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		2C50AF2A147C5826003D7DC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -255,6 +417,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2C1CB1EC148550380034D155 /* Build configuration list for PBXNativeTarget "PaintingDataBaseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C1CB1EA148550380034D155 /* Debug */,
+				2C1CB1EB148550380034D155 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2C50AF12147C5825003D7DC8 /* Build configuration list for PBXProject "PaintingDataBase" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
